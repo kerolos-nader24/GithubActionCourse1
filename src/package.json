@@ -2,9 +2,9 @@
   "name": "simple-node-app",
   "version": "1.0.0",
   "description": "A simple Node.js app for GitHub Actions PR testing",
-  "main": "src/app.js",
+  "main": "app.js",
   "scripts": {
-    "test": "bash src/test.sh"
+    "test": "bash test.sh"
   },
   "dependencies": {}
 }
