@@ -2,33 +2,27 @@ name: Node.js CI
 
 on:
   push:
-    branches:
-      - main
-      - "release/**"
+    branches: [ main ]
   pull_request:
-    branches:
-      - main
-      - "release/**"
+    branches: [ main ]
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ جلب الكود
-      - name: Checkout code
-        uses: actions/checkout@v6.0.2
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      # 2️⃣ تثبيت Node.js
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'  # ممكن تغير الإصدار حسب مشروعك
+          node-version: '18'
 
-      # 3️⃣ تثبيت dependencies
       - name: Install dependencies
         run: npm install
+        working-directory: .github/workflows/src
 
-      # 4️⃣ تشغيل الاختبارات
       - name: Run tests
         run: npm test
+        working-directory: .github/workflows/src
