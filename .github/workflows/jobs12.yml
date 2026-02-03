@@ -1,8 +1,7 @@
-
 name: Example Workflow
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: {}
 
 jobs:
   job1:
@@ -31,3 +30,4 @@ jobs:
     steps:
       - name: Run job4
         run: echo "job: ${{ github.job }}"
+
