@@ -1,0 +1,15 @@
+name: External Trigger
+
+on:
+  repository_dispatch:
+    types: [incident_report]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Process signal
+        run: echo "البيانات اللي جاية من بره هي: ${{ github.event.client_payload.message }}"
+  
+      
+      
