@@ -2,14 +2,19 @@ name: External Trigger
 
 on:
   repository_dispatch:
-    types: [incident_report]
+    types:
+      - incident_report
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Process signal
-        run: echo "البيانات اللي جاية من بره هي: ${{ github.event.client_payload.message }}"
+      - name: Debug payload
+        run: |
+          echo "Event name: ${{ github.event_name }}"
+          echo "Payload:"
+          echo '${{ toJson(github.event.client_payload) }}'
+
   
       
       
