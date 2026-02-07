@@ -1,0 +1,17 @@
+name: matrix
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  matrix:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node: [16, 18, 20]
+
+    steps:
+      - name: Print node version
+        run: echo "node version ${{ matrix.node }}"
